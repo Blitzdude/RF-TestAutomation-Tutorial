@@ -4,15 +4,16 @@ Resource  ./PO/Team.robot
 Resource  ./PO/TopNavigation.robot
 
 *** Variables ***
-${Website_Page_Url} =  http://www.robotframeworktutorial.com/front-office/
+
 
 *** Keywords ***
 Go to LandingPage
-    Go To  ${Website_Page_Url}
+    Landing.Navigate To
+    Landing.Verify Page Loaded
 
 Go to Teams
     TopNavigation.Click "Teams"
+    Team.Verify Page Loaded
 
 Validate Teams
-    Team.Teams page should be visible
-    Team.Teams header should be right
+    Team.Validate page contents

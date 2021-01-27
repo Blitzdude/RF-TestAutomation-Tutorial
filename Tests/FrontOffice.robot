@@ -24,7 +24,7 @@ Should be able to access "Team" page
     FrontOfficeApp.Go to Teams
 
 "Team" page header should be correct
-    [Documentation]  Test that the 
+    [Documentation]  Test that the Team page heading text is correct
     FrontOfficeApp.Go to LandingPage
     FrontOfficeApp.Go to Teams
     FrontOfficeApp.Validate Teams

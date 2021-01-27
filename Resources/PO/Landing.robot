@@ -2,9 +2,13 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${Landing_Page_Title_Text} =  Welcome To Our Studio!
-${Landing_Page_Title_Element} =  xpath://*[@id="page-top"]/header/div/div/div[1]
+${URL} =  http://www.robotframeworktutorial.com/front-office/
+
+${LANDING_TITLE_ELEMENT} =  id:mainNav
 
 *** Keywords ***
-Landing page should open
-    Wait Until Page Contains  ${Landing_Page_Title_Text}
+Navigate To
+    Go To  ${URL}
+
+Verify Page Loaded
+    Wait Until Element Is Visible  ${LANDING_TITLE_ELEMENT}

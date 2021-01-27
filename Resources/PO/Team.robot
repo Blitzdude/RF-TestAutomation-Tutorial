@@ -2,13 +2,15 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${Team_Page_Header_Element} =  xpath://*[@id="team"]/div/div[1]/div/h2
-${Team_Page_Header_Text} =  OUR AMAZING TEAM
+${TEAM_HEADER_LABEL} =  xpath://*[@id="team"]/div/div[1]/div/h2
 
 *** Keywords ***
-Teams page should be visible
-    Wait Until Page Contains Element  ${Team_Page_Header_Element}
-    Sleep  3s
+Verify page loaded
+    Wait Until Page Contains Element  ${TEAM_HEADER_LABEL}
 
-Teams header should be right
-    Element Should Contain  ${Team_Page_Header_Element}  ${Team_Page_Header_Text}
+Validate page contents
+    #This fails in chrome but passes in edge
+    #Element Should Contain  ${TEAM_HEADER_LABEL}  Our Amazing Team
+    
+    ${ElementText} =  Get Text  ${TEAM_HEADER_LABEL}
+    Should Be Equal As Strings  ${ElementText}  Our Amazing Team  ignore_case=true
